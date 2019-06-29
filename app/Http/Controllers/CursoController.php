@@ -3,24 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Curso;
 use App\Models\Professor;
 
-class ProfessorController extends Controller
+class CursoController extends Controller
 {
     /**
-     * The professor repository instance
+     * The curso repository instance
      */
-    protected $professores;
+    protected $cursos;
 
     /**
      * Create a new controller instance.
      *
-     * @param  Professor  $professores
+     * @param  Curso  $cursos
      * @return void
      */
-    public function __construct(Professor $professores)
+    public function __construct(Curso $cursos)
     {
-        $this->professores = $professores;
+        $this->cursos = $cursos;
     }
 
     /**
@@ -30,9 +31,9 @@ class ProfessorController extends Controller
      */
     public function index()
     {
-        $professores = $this->professores->withTrashed()->get();
+        $cursos = $this->cursos->with('professor')->get();
 
-        return view('professor.index', compact('professores'));
+        return view('curso.index', compact('cursos'));
     }
 
     /**
@@ -42,7 +43,9 @@ class ProfessorController extends Controller
      */
     public function create()
     {
-        return view('professor.create');
+        $professores = Professor::get()->pluck('nome', 'id')->prepend('please_select', '');
+
+        return view('curso.create', compact('professores'));
     }
 
     /**
@@ -55,10 +58,10 @@ class ProfessorController extends Controller
     {
         $dataForm = $request->except('_token');
 
-        $professor = $this->professores->create($dataForm);
+        $curso = $this->cursos->create($dataForm);
 
-        if($professor)
-            return redirect()->route('professores.index');
+        if($curso)
+            return redirect()->route('cursos.index');
         else
             return "erro ao criar";
     }
@@ -82,9 +85,10 @@ class ProfessorController extends Controller
      */
     public function edit($id)
     {
-        $professor = $this->professores->find($id);
+        $curso = $this->cursos->find($id);
+        $professores = Professor::get()->pluck('nome', 'id')->prepend('please_select', '');
 
-        return view('professor.edit', compact('professor'));
+        return view('curso.edit', compact('curso', 'professores'));
     }
 
     /**
@@ -98,11 +102,14 @@ class ProfessorController extends Controller
     {
         $dataForm = $request->input();
 
-        $professor = $this->professores->find($id);
-        $update = $professor->update($dataForm);
+        if ($dataForm['professor_id'] == null)
+            unset($dataForm['professor_id']);
+
+        $curso = $this->cursos->find($id);
+        $update = $curso->update($dataForm);
 
         if($update)
-            return redirect()->route('professores.index');
+            return redirect()->route('cursos.index');
         else
             return "erro ao atualizar";
     }
@@ -115,25 +122,11 @@ class ProfessorController extends Controller
      */
     public function destroy($id)
     {
-        $delete = $this->professores->destroy($id);
+        $delete = $this->cursos->destroy($id);
 
         if($delete)
-            return redirect()->route('professores.index');
+            return redirect()->route('cursos.index');
         else
             return "erro ao deletar";
-    }
-
-    /**
-     * Restore the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function restore($id)
-    {
-        $professor = professor::onlyTrashed()->findOrFail($id);
-        $professor->restore();
-
-        return redirect()->route('professores.index');
     }
 }

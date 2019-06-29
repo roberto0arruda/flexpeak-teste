@@ -28,16 +28,25 @@
             </thead>
             <tbody>
                 @forelse ($professores as $professor)
-                <tr data-entry-id="{{ $professor->id }}">
+                <tr data-entry-id="{{ $professor->id }}"
+                    @if($professor->deleted_at) class="danger" title="professor Bloqueado" >
+                    <td class=""><div class="text-center"><div class="btn-group">
+                        <form action="{{route('professores.restore', $professor->id)}}" method="POST" onsubmit="return confirm('Restaurar?');" style="display:inline">
+                            {!! csrf_field() !!}
+                            <button type="submit" class="tip btn btn-info btn-xs" title="Restaurar"><i class="fa fa-recycle" aria-hidden="true"></i></button>
+                        </form>
+                    </td>
+                    @else >
                     <td class=""><div class="text-center"><div class="btn-group">
                         <a href="{{route('professores.edit', $professor->id)}}" class="tip btn btn-info btn-xs" title="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                         <a href="{{route('professores.show', $professor->id)}}" class="tip btn btn-warning btn-xs" title="Detalhes"><i class="fa fa-file-text" aria-hidden="true"></i></a>
-                        <form action="{{route('professores.destroy', $professor->id)}}" method="POST" onsubmit="return confirm('Tem Certeza?');" style="display:inline">
+                        <form action="{{route('professores.destroy', $professor->id)}}" method="POST" onsubmit="return confirm('Deletar?');" style="display:inline">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}
                             <button type="submit" class="tip btn btn-danger btn-xs" title="Deletar"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </form></div></div>
                     </td>
+                    @endif
                     <td>{{$professor->id}}</td>
                     <td>{{$professor->nome}}</td>
                     <td>{{date('d-m-Y',strtotime($professor->data_nascimento))}}</td>
