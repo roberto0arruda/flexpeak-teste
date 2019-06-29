@@ -1,0 +1,48 @@
+.content {
+    background-color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
+.content > div.links {
+    margin: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links>a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #c4e3f3;
+    color: white;
+    text-align: center;
+}
+
+.footer>.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
