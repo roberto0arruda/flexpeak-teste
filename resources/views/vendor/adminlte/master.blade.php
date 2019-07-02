@@ -61,6 +61,42 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
 @endif
 
+<script>
+    $(document).ready(function() {
+        $('#table').DataTable({
+            "responsive": true,
+            "ordering": true,
+            "pageLength": 20,
+            "aLengthMenu": [[20, 30, 40, -1], ["20", "30", "40", "Todos"]],
+            "language": {
+                "decimal": ",",
+                "thousands": ".",
+                "sEmptyTable": "sem entradas na tabela",
+                "sInfo": "Exibindo do _START_º até _END_º do total de _TOTAL_ registro(os)",
+                "sInfoEmpty": "Exibindo 0 até 0 de 0 registros",
+                "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ".",
+                "sLengthMenu": "Exibir _MENU_ resultados por página",
+                "sLoadingRecords": "Carregando...",
+                "sProcessing": "Processando...",
+                "sZeroRecords": "Nenhum registro encontrado!",
+                "sSearch": "Pesquisar",
+                "oPaginate": {
+                    "sNext": "Próximo",
+                    "sPrevious": "Anterior",
+                    "sFirst": "Primeiro",
+                    "sLast": "Último"
+                },
+                "oAria": {
+                    "sSortAscending": ": Ordenar colunas de forma ascendente",
+                    "sSortDescending": ": Ordenar colunas de forma descendente"
+                }
+            }
+        });
+    });
+</script>
+
 @yield('adminlte_js')
 
 </body>
