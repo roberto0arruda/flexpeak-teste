@@ -126,6 +126,22 @@
         </div>
         <!-- /.content-wrapper -->
 
+        <!-- footer -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs"><b>Version:</b> 1.01</div>
+            <b>&copy; {{ date('Y') }}</b> Created by
+            <a href="http://github.com/roberto0arruda" target="_blank">
+                Roberto Arruda <i class="fa fa-github-alt"></i>
+            </a>
+            &nbsp;|&nbsp;
+            <a href="http://bit.ly/2MNsMFG" target="_blank"><i class="fa fa-whatsapp"></i></a>
+            &nbsp;|&nbsp;
+            <a href="mailto:roberto0arruda@hotmail.com?subject=Contato&body=Quero%20um%20desses" target="_blank">
+                <i class="fa fa-envelope"></i>
+            </a>
+        </footer>
+        <!-- ./footer -->
+
     </div>
     <!-- ./wrapper -->
 @stop
