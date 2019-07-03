@@ -4,8 +4,6 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
     <title>Relatório do Curso - {{$curso->nome.' - '.date('d/m/Y')}}</title>
-    <link rel="stylesheet" href="{{asset('vendor/adminlte/vendor/bootstrap/dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/print.css')}}" media="print">
 </head>
 <body>
     <small style="float:right">Emitido por {{auth()->user()->name}} <br>
