@@ -23,8 +23,9 @@
             <thead>
                 <th></th>
                 <th>ID</th>
-                <th>Nome</th>
-                <th>Nascimento</th>
+                <th>NOME</th>
+                <th>DATA_NASCIMENTO</th>
+                <th>DATA_CRIACAO</th>
             </thead>
             <tbody>
                 @forelse ($professores as $professor)
@@ -33,13 +34,12 @@
                     <td class=""><div class="text-center"><div class="btn-group">
                         <form action="{{route('professores.restore', $professor->id)}}" method="POST" onsubmit="return confirm('Restaurar?');" style="display:inline">
                             {!! csrf_field() !!}
-                            <button type="submit" class="tip btn btn-info btn-xs" title="Restaurar"><i class="fa fa-recycle" aria-hidden="true"></i></button>
+                            <button type="submit" class="tip btn btn-info btn-xs" title="Restaurar"><i class="fa fa-undo" aria-hidden="true"></i></button>
                         </form>
                     </td>
                     @else >
                     <td class=""><div class="text-center"><div class="btn-group">
                         <a href="{{route('professores.edit', $professor->id)}}" class="tip btn btn-info btn-xs" title="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        <a href="{{route('professores.show', $professor->id)}}" class="tip btn btn-warning btn-xs" title="Detalhes"><i class="fa fa-file-text" aria-hidden="true"></i></a>
                         <form action="{{route('professores.destroy', $professor->id)}}" method="POST" onsubmit="return confirm('Deletar?');" style="display:inline">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}
@@ -50,6 +50,7 @@
                     <td>{{$professor->id}}</td>
                     <td>{{$professor->nome}}</td>
                     <td>{{date('d-m-Y',strtotime($professor->data_nascimento))}}</td>
+                    <td>{{date('d-m-Y',strtotime($professor->created_at))}}</td>
                 </tr>
                 @empty
                 @endforelse

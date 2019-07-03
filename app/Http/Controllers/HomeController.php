@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Aluno;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,20 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function generatePDF()
+    {
+        $data = Aluno::get();
+        // dd($data);
+
+        $pdf = \PDF::loadView('integral-pdf', compact('data'));
+
+        return $pdf->stream();
     }
 }

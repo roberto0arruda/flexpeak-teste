@@ -20,4 +20,14 @@ class Curso extends Model
     {
         return $this->belongsTo(Professor::class);
     }
+
+    public function alunos()
+    {
+        return $this->hasMany(Aluno::class);
+    }
+
+    public function aluno()
+    {
+        return $this->hasOneThrough(Aluno::class, Professor::class);
+    }
 }

@@ -17,4 +17,14 @@ class Professor extends Model
      * @var array
      */
     protected $fillable = ['nome', 'data_nascimento'];
+
+    public function cursos()
+    {
+        return $this->hasMany(Curso::class);
+    }
+
+    public function alunos()
+    {
+        return $this->hasManyThrough(Aluno::class, Curso::class);
+    }
 }

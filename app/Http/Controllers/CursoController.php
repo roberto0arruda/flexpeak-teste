@@ -74,7 +74,11 @@ class CursoController extends Controller
      */
     public function show($id)
     {
-        //
+        $curso = $this->cursos->find($id);
+
+        return \PDF::loadView('curso.show', compact('curso'))
+            ->setPaper('a4', 'portrait') // formato a4 retrato
+            ->stream();
     }
 
     /**

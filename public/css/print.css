@@ -1,0 +1,417 @@
+* {
+    background: transparent !important;
+    color: #000 !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4em;
+}
+
+.texto {
+    text-align: center;
+    margin: 0 0 2px 0;
+}
+
+@media print {
+    a[href]:after {
+        content: none !important;
+    }
+
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .row {
+        margin-right: -50px;
+        margin-left: -30px;
+    }
+
+    .col-xs-1,
+    .col-sm-1,
+    .col-md-1,
+    .col-lg-1,
+    .col-xs-2,
+    .col-sm-2,
+    .col-md-2,
+    .col-lg-2,
+    .col-xs-3,
+    .col-sm-3,
+    .col-md-3,
+    .col-lg-3,
+    .col-xs-4,
+    .col-sm-4,
+    .col-md-4,
+    .col-lg-4,
+    .col-xs-5,
+    .col-sm-5,
+    .col-md-5,
+    .col-lg-5,
+    .col-xs-6,
+    .col-sm-6,
+    .col-md-6,
+    .col-lg-6,
+    .col-xs-7,
+    .col-sm-7,
+    .col-md-7,
+    .col-lg-7,
+    .col-xs-8,
+    .col-sm-8,
+    .col-md-8,
+    .col-lg-8,
+    .col-xs-9,
+    .col-sm-9,
+    .col-md-9,
+    .col-lg-9,
+    .col-xs-10,
+    .col-sm-10,
+    .col-md-10,
+    .col-lg-10,
+    .col-xs-11,
+    .col-sm-11,
+    .col-md-11,
+    .col-lg-11,
+    .col-xs-12,
+    .col-sm-12,
+    .col-md-12,
+    .col-lg-12 {
+        position: relative;
+        min-height: 1px;
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .col-md-1,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12 {
+        float: left;
+    }
+
+    .col-md-2 {
+        /*width: 16.66666667%;*/
+        width: 13%;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    legend {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: inherit;
+        color: #333;
+        border: 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    legend {
+        padding: 0;
+        border: 0;
+    }
+
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .table>thead>tr>th,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>th,
+    .table>thead>tr>td,
+    .table>tbody>tr>td,
+    .table>tfoot>tr>td {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+    }
+
+    .table>thead>tr>th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .table>caption+thead>tr:first-child>th,
+    .table>colgroup+thead>tr:first-child>th,
+    .table>thead:first-child>tr:first-child>th,
+    .table>caption+thead>tr:first-child>td,
+    .table>colgroup+thead>tr:first-child>td,
+    .table>thead:first-child>tr:first-child>td {
+        border-top: 0;
+    }
+
+    .table>tbody+tbody {
+        border-top: 2px solid #ddd;
+    }
+
+    .table .table {
+        background-color: #fff;
+    }
+
+    .table-condensed>thead>tr>th,
+    .table-condensed>tbody>tr>th,
+    .table-condensed>tfoot>tr>th,
+    .table-condensed>thead>tr>td,
+    .table-condensed>tbody>tr>td,
+    .table-condensed>tfoot>tr>td {
+        padding: 5px;
+    }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+    .table-bordered>thead>tr>th,
+    .table-bordered>tbody>tr>th,
+    .table-bordered>tfoot>tr>th,
+    .table-bordered>thead>tr>td,
+    .table-bordered>tbody>tr>td,
+    .table-bordered>tfoot>tr>td {
+        border: 1px solid #ddd;
+    }
+
+    .table-bordered>thead>tr>th,
+    .table-bordered>thead>tr>td {
+        border-bottom-width: 2px;
+    }
+
+    .table-striped>tbody>tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-hover>tbody>tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .label {
+        display: inline;
+        padding: .2em .6em .3em;
+        font-size: 75%;
+        font-weight: bold;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+
+    .label-default {
+        background-color: #777;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        height: 15px;
+        padding: 2px 12px;
+        font-size: 10px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 0px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+        -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    .input-sm,
+    .form-group-sm .form-control {
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+    }
+
+    select.input-sm,
+    select.form-group-sm .form-control {
+        height: 30px;
+        line-height: 30px;
+    }
+
+    textarea.input-sm,
+    textarea.form-group-sm .form-control,
+    select[multiple].input-sm,
+    select[multiple].form-group-sm .form-control {
+        height: auto;
+    }
+
+    .input-lg,
+    .form-group-lg .form-control {
+        height: 46px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 6px;
+    }
+
+    select.input-lg,
+    select.form-group-lg .form-control {
+        height: 46px;
+        line-height: 46px;
+    }
+
+    textarea.input-lg,
+    textarea.form-group-lg .form-control,
+    select[multiple].input-lg,
+    select[multiple].form-group-lg .form-control {
+        height: auto;
+    }
+
+    .form-control-static.input-lg,
+    .form-control-static.input-sm {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .input-sm,
+    .form-group-sm .form-control {
+        height: 30px;
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+    }
+
+    select.input-sm,
+    select.form-group-sm .form-control {
+        height: 30px;
+        line-height: 30px;
+    }
+
+    textarea.input-sm,
+    textarea.form-group-sm .form-control,
+    select[multiple].input-sm,
+    select[multiple].form-group-sm .form-control {
+        height: auto;
+    }
+
+    .input-lg,
+    .form-group-lg .form-control {
+        height: 46px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 6px;
+    }
+
+    select.input-lg,
+    select.form-group-lg .form-control {
+        height: 46px;
+        line-height: 46px;
+    }
+
+    textarea.input-lg,
+    textarea.form-group-lg .form-control,
+    select[multiple].input-lg,
+    select[multiple].form-group-lg .form-control {
+        height: auto;
+    }
+
+    .input-lg+.form-control-feedback {
+        width: 46px;
+        height: 46px;
+        line-height: 46px;
+    }
+
+    .input-sm+.form-control-feedback {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .input-group-addon {
+        padding: 6px 12px;
+        font-size: 10px;
+        font-weight: normal;
+        line-height: 1;
+        color: #555;
+        text-align: center;
+        background-color: #fff;
+        border: 0px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .input-group-addon.input-sm {
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: 3px;
+    }
+
+    .input-group-addon.input-lg {
+        padding: 5px 5px;
+        font-size: 10px;
+        border-radius: 0px;
+    }
+
+    .input-group-addon input[type="radio"],
+    .input-group-addon input[type="checkbox"] {
+        margin-top: 0;
+    }
+
+    .input-group .form-control:first-child,
+    .input-group-addon:first-child,
+    .input-group-btn:first-child>.btn,
+    .input-group-btn:first-child>.btn-group>.btn,
+    .input-group-btn:first-child>.dropdown-toggle,
+    .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle),
+    .input-group-btn:last-child>.btn-group:not(:last-child)>.btn {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .input-group-addon:first-child {
+        border-right: 0;
+    }
+
+    .input-group .form-control:last-child,
+    .input-group-addon:last-child,
+    .input-group-btn:last-child>.btn,
+    .input-group-btn:last-child>.btn-group>.btn,
+    .input-group-btn:last-child>.dropdown-toggle,
+    .input-group-btn:first-child>.btn:not(:first-child),
+    .input-group-btn:first-child>.btn-group:not(:first-child)>.btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .input-group-addon:last-child {
+        border-left: 0;
+    }
+
+    .no-print {
+        display: none
+    }
+
+    body {
+        overflow: hidden;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+}

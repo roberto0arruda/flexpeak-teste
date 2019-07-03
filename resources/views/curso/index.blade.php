@@ -23,16 +23,17 @@
             <thead>
                 <th></th>
                 <th>ID</th>
-                <th>Nome</th>
-                <th>Criação</th>
-                <th>Professor</th>
+                <th>NOME</th>
+                <th>DATA_CRIACAO</th>
+                <th>PROFESSOR</th>
             </thead>
             <tbody>
                 @forelse ($cursos as $curso)
                 <tr data-entry-id="{{ $curso->id }}">
                     <td class=""><div class="text-center"><div class="btn-group">
-                        <a href="{{route('cursos.edit', $curso->id)}}" class="tip btn btn-info btn-xs" title="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                        <a href="{{route('cursos.show', $curso->id)}}" class="tip btn btn-warning btn-xs" title="Detalhes"><i class="fa fa-file-text" aria-hidden="true"></i></a>
+                        <a href="{{route('cursos.edit', $curso->id)}}" class="tip btn btn-info btn-xs" title="Editar">
+                            <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <a href="{{route('cursos.show', $curso->id)}}" class="tip btn btn-default btn-xs" title="Imprimir Detalhes"><i class="fa fa-print" aria-hidden="true"></i></a>
                         <form action="{{route('cursos.destroy', $curso->id)}}" method="POST" onsubmit="return confirm('Tem Certeza?');" style="display:inline">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}

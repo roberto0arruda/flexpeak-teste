@@ -108,6 +108,13 @@ return [
     */
 
     'menu' => [
+        'ACCOUNT SETTINGS',
+        [
+            'icon' => 'user',
+            'text' => 'auth()->user()->name',
+            'label'       => 'online',
+            'label_color' => 'success',
+        ],
         'MENU NAVEGAÇÃO',
         [
             'text'        => 'Home site',
@@ -130,6 +137,12 @@ return [
             'text'        => 'Alunos',
             'url'         => '/alunos',
             'icon'        => 'graduation-cap',
+        ],
+        'RELATÓRIOS PDF',
+        [
+            'text'  => 'Integral pdf',
+            'url'   => 'home/integral-pdf',
+            'icon'  => 'print',
         ],
     ],
 
