@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Professor;
 
-class ProfessorController extends Controller
+class ProfessorApiController extends Controller
 {
 	protected $professor;
 
@@ -36,7 +36,7 @@ class ProfessorController extends Controller
         try {
             $this->professor::create($request->all());
 
-            return response()->json(['msg' => 'Produto criado com sucesso!'], 201);
+            return response()->json(['msg' => 'Criado com sucesso!'], 201);
         } catch (\Exception $e) {
             if ( config('app.debug') ) {
                 return response()->json(['msg' => $e->getMessage()]);
@@ -69,7 +69,7 @@ class ProfessorController extends Controller
 		try {
 			$this->professor::find($id)->update($request->all());
 
-			return response()->json(['msg' => 'atualizado com sucesso'], 201);
+			return response()->json(['msg' => 'Atualizado com sucesso'], 201);
 		} catch (\Exception $e) {
 			if ( config('app.debug') ) {
                 return response()->json(['msg' => $e->getMessage()]);
@@ -90,7 +90,7 @@ class ProfessorController extends Controller
         try {
 			$this->professor::destroy($id);
 
-			return response()->json(['msg' => 'deletado com sucesso'], 200);
+			return response()->json(['msg' => 'Deletado com sucesso'], 200);
 		} catch (\Exception $e) {
 			if ( config('app.debug') ) {
                 return response()->json(['msg' => $e->getMessage()]);

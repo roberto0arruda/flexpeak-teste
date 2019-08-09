@@ -17,5 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//      /api/professores
-Route::apiResource('/professores', 'Api\ProfessorController');
+Route::group(['namespace' => 'Api'], function () {
+	//      /api/professores
+	Route::apiResource('/professores', 'ProfessorApiController');
+	//      /api/cursos
+	Route::apiResource('/cursos', 'CursoApiController');
+	//      /api/alunos
+	Route::apiResource('/alunos', 'AlunoApiController');
+});
