@@ -2,56 +2,9 @@
 
 @section('content')
 @auth
-	<div class="container-fluid mb-3">
-		<div class="row mb-3">
-			<div class="col-md-4 mb-2">
-				@include('components.card', [
-					'type'  => 'statistic',
-					'title' => 'Usuários',
-					'icon'  => 'users',
-					'total' => $total['users']
-				])
-			</div>
-			<div class="col-md-4 mb-2">
-				@include('components.card', [
-					'type'  => 'statistic',
-					'title' => 'Produtos',
-					'icon'  => 'tags',
-					'total' => $total['products']
-				])
-			</div>
-			<div class="col-md-4 mb-2">
-				@include('components.card', [
-					'type'  => 'statistic',
-					'title' => 'Pedidos',
-					'icon'  => 'shopping-cart',
-					'total' => $total['orders']
-				])
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<div class="card">
-					<div class="card-content">
-						<div class="card-body">
-							<div class="m-5 text-center">
-								<p>
-									<i class="far fa-smile-beam fa-5x"></i>
-								</p>
-								<p>
-									<h4>Olá! Seja bem-vindo.</h4>
-									Aqui você poderá criar, visualizar, alterar e excluir professores, cursos e alunos.<br />
-									Basta acessar as opções no menu principal.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<app-content></app-content>
 @else
-	<div class="container h-100">
+	<div class="container h-100" style="padding-top:50pt;">
 		<div class="row align-items-center h-100">
 			<div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
 				<div class="jumbotron bg-white">

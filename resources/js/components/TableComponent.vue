@@ -1,42 +1,30 @@
 <template>
 	<div class="bg-white">
-		{{professores}}
-		<table class="table table-bordered table-striped table-hover">
-			<thead>
-				<tr>
-					<th v-for="(item, index) in table" :key="index">{{ indice }}</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr v-for="(item, index) in table" :key="index">
-					<td>{{ item.id }}</td>
-					<td>{{ item.nome }}</td>
-					<td>- - -</td>
-				</tr>
-			</tbody>
-		</table>
+		<professores></professores>
+
 	</div>
 </template>
 
 <script>
+import professores from './tables/professores'
+// import cursos from './tables/cursos'
+// import alunos from './tables/alunos'
 
 export default {
+	props: {
+		ondeClicou: String
+	},
 	data() {
 		return {
-			table: [],
-			url: ''
+
 		}
 	},
-	computed: {
-		getTable: function () {
-			return this.loadTables('cursos')
-		}
+	components: {
+		professores
+		// ,
+		// cursos,
+		// alunos
 	},
-	methods: {
-		loadTables(url) {
-			axios.get('/api/'+url)
-				.then(response => this.table = response.data)
-		}
-	},
+
 }
 </script>

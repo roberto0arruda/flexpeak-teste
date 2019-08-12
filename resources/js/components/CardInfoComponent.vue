@@ -1,7 +1,7 @@
 <template>
 	<div id="card">
 		<div class="row mb-3">
-			<div class="col-md-4 mb-2" v-for="(card, index) in cards" :key="index">
+			<div class="col-md-4 mb-2" v-for="(card, index) in cards" :key="index" @click="$emit('evento-card-click',card.title)">
 				<div class="card">
 					<div class="card-content">
 						<div class="card-body">
@@ -24,28 +24,27 @@
 
 <script>
 export default {
-
 	data() {
 		return {
 			cards: [
 				{
-					total: '20',
+					total: '-',
 					title: 'Professores',
 					icon: 'fas fa-chalkboard-teacher fa-3x'
 				},
 				{
-					total: 50,
+					total: '-',
 					title: 'Cursos',
 					icon: 'fas fa-graduation-cap fa-3x'
 				},
 				{
-					total: 50,
+					total: '-',
 					title: 'Alunos',
 					icon: 'fas fa-user-graduate fa-3x'
 				}
 			]
 		}
-	},
+	}
 }
 </script>
 

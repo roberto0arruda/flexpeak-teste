@@ -15,7 +15,7 @@
 <body>
     <div id="app">
 		@auth
-			@include('includes.navbar')
+			<app-nav-bar rota="{{ route('logout') }}" csrf='@csrf'></app-nav-bar>
 		@endauth
 
 		<main class="{{ (!auth()->check()) ? 'h-100' : '' }}">

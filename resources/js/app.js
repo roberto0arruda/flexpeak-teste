@@ -75,10 +75,10 @@ window.DataTable = function(target = [], order = 0) {
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('app-view', require('./components/AppViewComponent.vue').default);
-Vue.component('card-info', require('./components/CardInfoComponent.vue').default);
 Vue.component('app-content', require('./components/AppContentComponent.vue').default);
-Vue.component('tabela', require('./components/TableComponent.vue').default);
+Vue.component('app-nav-bar', require('./components/NavBarComponent.vue').default);
+Vue.component('card-info', require('./components/CardInfoComponent.vue').default);
+Vue.component('tabela-dados', require('./components/TableComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -1,8 +1,8 @@
 <template>
 	<div class="container-fluid mb-3">
-		<card-info></card-info>
+		<card-info v-on:evento-card-click="cardClicked"></card-info>
 
-		<div class="row">
+		<div class="row" v-if="!showTable">
 			<div class="col-12">
 				<div class="card">
 					<div class="card-content">
@@ -20,17 +20,29 @@
 				</div>
 			</div>
 		</div>
+
+		<tabela-dados v-else :ondeClicou="tabela"></tabela-dados>
 	</div>
 </template>
 
 <script>
 import cardInfo from './CardInfoComponent'
+import tabelaDados from './TableComponent'
 
 export default {
 
+	data() {
+		return {
+			showTable: false,
+			tabela: ''
+		}
+	},
+
+	methods: {
+		cardClicked(card) {
+			this.tabela = card
+			this.showTable ? this.showTable = false : this.showTable = true
+		}
+	},
 }
 </script>
-
-<style lang="css">
-
-</style>
