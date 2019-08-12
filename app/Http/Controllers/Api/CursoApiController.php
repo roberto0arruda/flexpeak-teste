@@ -22,7 +22,7 @@ class CursoApiController extends Controller
      */
     public function index()
     {
-        return response()->json(['data' => $this->curso::paginate(5)]);
+        return response()->json($this->curso::all());
     }
 
     /**

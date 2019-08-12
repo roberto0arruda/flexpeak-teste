@@ -22,7 +22,7 @@ class ProfessorApiController extends Controller
      */
     public function index()
     {
-        return response()->json(['data' => $this->professor::paginate(5)]);
+        return response()->json($this->professor::all());
     }
 
     /**

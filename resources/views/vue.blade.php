@@ -1,10 +1,85 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSRF Token -->
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('content')
-@auth
-	<app-content></app-content>
+	<title>{{ config('app.name', 'Laravel') }}</title>
+
+	<!-- Styles -->
+	<link href="{{ asset('css/vue.css') }}" rel="stylesheet">
+@stack('style')
+</head>
+<body>
+	<main class="{{ (!auth()->check()) ? 'h-100' : '' }}">
+		<div id="app">
+
+			<app-view>
+				<app-sidebar></app-sidebar>
+				<app-content></app-content>
+			</app-view>
+			@include('includes.footer')
+		</div>
+	</main>
+
+	<script src="{{ asset('js/vue.js') }}"></script>
+</body>
+</html>
+{{--
+
+{{-- @auth
+	<div class="container-fluid mb-3">
+		<div class="row mb-3">
+			<div class="col-md-4 mb-2">
+				@include('components.card', [
+					'type'  => 'statistic',
+					'title' => 'Usuários',
+					'icon'  => 'users',
+					'total' => $total['users']
+				])
+			</div>
+			<div class="col-md-4 mb-2">
+				@include('components.card', [
+					'type'  => 'statistic',
+					'title' => 'Produtos',
+					'icon'  => 'tags',
+					'total' => $total['products']
+				])
+			</div>
+			<div class="col-md-4 mb-2">
+				@include('components.card', [
+					'type'  => 'statistic',
+					'title' => 'Pedidos',
+					'icon'  => 'shopping-cart',
+					'total' => $total['orders']
+				])
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-content">
+						<div class="card-body">
+							<div class="m-5 text-center">
+								<p>
+									<i class="far fa-smile-beam fa-5x"></i>
+								</p>
+								<p>
+									<h4>Olá! Seja bem-vindo.</h4>
+									Aqui você poderá criar, visualizar, alterar e excluir professores, cursos e alunos.<br />
+									Basta acessar as opções no menu principal.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 @else
-	<div class="container h-100" style="padding-top:50pt;">
+	<div class="container h-100">
 		<div class="row align-items-center h-100">
 			<div class="col-sm-9 col-md-7 col-lg-6 col-xl-5 mx-auto">
 				<div class="jumbotron bg-white">
@@ -56,11 +131,9 @@
 					</form>
 				</div>
 				<p class="text-light text-center">
-					Created by <a href="http://github.com/roberto0arruda">Roberto Arruda</a><br>
 					&copy; Copyright <a class="text-primary" href="https://flexpeak.com.br/site" target="_blank">FlexPeak</a> {{ date('Y') }} - Todos os direitos reservados.
 				</p>
 			</div>
 		</div>
 	</div>
-@endauth
-@stop
+@endauth --}}
