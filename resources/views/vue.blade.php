@@ -1,16 +1,33 @@
-@extends('layouts.front-vue')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSRF Token -->
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('content')
-<div class="container-fluid mb-3">
-	<div class="row mb-3">
-		<div class="col-md-4 mb-2">
-			<card-menu></card-menu>
+	<title>{{ config('app.name', 'Laravel') }}</title>
+
+	<!-- Styles -->
+	<link href="{{ asset('css/vue.css') }}" rel="stylesheet">
+@stack('style')
+</head>
+<body>
+	<main class="{{ (!auth()->check()) ? 'h-100' : '' }}">
+		<div id="app">
+
+			<app-view>
+				<app-sidebar></app-sidebar>
+				<app-content></app-content>
+			</app-view>
+			@include('includes.footer')
 		</div>
-	</div>
-</div>
+	</main>
 
-<rodape></rodape>
-@endsection
+	<script src="{{ asset('js/vue.js') }}"></script>
+</body>
+</html>
+{{--
 
 {{-- @auth
 	<div class="container-fluid mb-3">

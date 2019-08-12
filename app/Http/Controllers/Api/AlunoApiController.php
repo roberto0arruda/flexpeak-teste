@@ -22,7 +22,7 @@ class AlunoApiController extends Controller
      */
     public function index()
     {
-        return response()->json(['data' => $this->aluno::paginate(5)]);
+        return response()->json($this->aluno::all());
     }
 
     /**

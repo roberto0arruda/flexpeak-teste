@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['site', 'vue']);
+        // $this->middleware('auth');
     }
 
     /**
@@ -26,16 +26,6 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-	public function site()
-	{
-		return view('welcome');
-	}
-
-	public function vue()
-	{
-		return view('vue');
-	}
 
     /**
      * Display a listing of the resource.
